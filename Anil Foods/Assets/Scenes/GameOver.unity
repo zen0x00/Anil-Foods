@@ -324,6 +324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f96857b60b885cfb6bfdb9519069cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  punchScale: 0.2
+  punchDuration: 0.25
+  idleScaleAmount: 0.05
+  idleDuration: 1.2
 --- !u!1 &469720020
 GameObject:
   m_ObjectHideFlags: 0
