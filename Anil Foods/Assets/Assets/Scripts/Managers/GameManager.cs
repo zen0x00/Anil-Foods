@@ -1,13 +1,15 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public int score = 0;
-    public float timer = 0f;
+    public int score;
+    public float timer;   // Countdown from 60 seconds
 
+    [Header("UI References")]
     public TMP_Text scoreText;
     public TMP_Text timerText;
 
@@ -16,9 +18,28 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        timer = 60f;
+        scoreText.text = "Score: 0";
+        timerText.text = "Time: 60";
+    }
+
     void Update()
     {
-        timer += Time.deltaTime;
+        // Countdown timer
+        timer -= Time.deltaTime;
+
+        if (timer < 0)
+        {
+            timer = 0;
+            timerText.text = "Time: 0";
+
+            // Load GameOver scene
+            SceneManager.LoadScene("GameOver");
+            return;
+        }
+
         timerText.text = "Time: " + timer.ToString("F1");
     }
 
