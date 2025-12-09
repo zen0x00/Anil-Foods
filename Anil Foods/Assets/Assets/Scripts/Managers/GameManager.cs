@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        timer = 60f;
+        score = 0;
+        PlayerPrefs.SetInt("LastScore", 0);  // Hard reset
+        PlayerPrefs.Save();
         scoreText.text = "Score: 0";
         timerText.text = "Time: 60";
     }
@@ -30,15 +32,24 @@ public class GameManager : MonoBehaviour
         // Countdown timer
         timer -= Time.deltaTime;
 
-        if (timer < 0)
+        if (timer <= 0)
         {
             timer = 0;
-            timerText.text = "Time: 0";
 
-            // Load GameOver scene
+            // Load phone number
+            string phone = SaveSystem.LoadPhoneNumber();
+
+            // 1. Save best score (per phone)
+            SaveSystem.SaveBestScore(phone, score);
+
+            // 2. Save current run score
+            PlayerPrefs.SetInt("LastScore", score);
+            PlayerPrefs.Save();
+
+            // 3. Load GameOver
             SceneManager.LoadScene("GameOver");
-            return;
         }
+
 
         timerText.text = "Time: " + timer.ToString("F1");
     }

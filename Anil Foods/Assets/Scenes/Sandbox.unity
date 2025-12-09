@@ -1097,7 +1097,7 @@ GameObject:
   - component: {fileID: 1811476207}
   m_Layer: 0
   m_Name: ItemSpawner
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,10 +1129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab005415f05e514b8d2accbceadb658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 3546919226428577981, guid: 513f37dbeab8c2448b4ac91fce255bd2, type: 3}
-  - {fileID: 3546919226428577981, guid: 7bacf5215657397a2b276263020615cc, type: 3}
-  - {fileID: 3546919226428577981, guid: 0243763c1c6f1ab22a96066453041dc5, type: 3}
+  items: []
 --- !u!1 &1996198261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,7 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  timer: 60
+  timer: 10
   scoreText: {fileID: 981516129}
   timerText: {fileID: 748280325}
 --- !u!1660057539 &9223372036854775807
