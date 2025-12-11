@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Anil Foods.sln"
+    "dotnet.defaultSolution": "Anil Foods.sln",
+    "dotnet.preferCSharpExtension": true
 }

@@ -10,6 +10,8 @@ public class WorldGenerator : MonoBehaviour
 
     public float spawnDistance = 20f;
 
+    private int chunkCount = 0;
+
     private Transform lastExit;
     private List<GameObject> activeChunks = new List<GameObject>();
 
@@ -30,20 +32,23 @@ public class WorldGenerator : MonoBehaviour
 
     void SpawnChunk(Vector3 pos, Quaternion rot)
     {
-        // Pick random chunk
         GameObject prefab = chunkPrefabs[Random.Range(0, chunkPrefabs.Count)];
         GameObject newChunk = Instantiate(prefab, pos, rot, chunkContainer);
 
         activeChunks.Add(newChunk);
 
-        // Get Chunk component
         Chunk chunk = newChunk.GetComponent<Chunk>();
         lastExit = chunk.exitPoint;
 
-        // Spawn collectibles in this chunk
-        itemSpawner.SpawnInChunk(chunk);
+        chunkCount++;
 
-        // Delete the oldest chunk if more than 3 exist
+        // Spawn items ONLY from the 2nd chunk onwards
+        if (chunkCount > 1)
+        {
+            itemSpawner.SpawnInChunk(chunk);
+        }
+
+        // Remove old chunks
         if (activeChunks.Count > 3)
         {
             Destroy(activeChunks[0]);
