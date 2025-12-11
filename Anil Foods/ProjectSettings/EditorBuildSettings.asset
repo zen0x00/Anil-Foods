@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 715ffd4f1503c1345ad650ccc5117673
-  - enabled: 0
-    path: Assets/Scenes/Data Collection.unity
-    guid: e5e47db25424baa4e912f86be15eed52
   - enabled: 1
     path: Assets/Scenes/Sandbox.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
